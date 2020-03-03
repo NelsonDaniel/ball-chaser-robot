@@ -166,6 +166,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+ball_chaser/CMakeFiles/drive_bot.dir/rule:
+	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/drive_bot.dir/rule
+.PHONY : ball_chaser/CMakeFiles/drive_bot.dir/rule
+
+# Convenience name for target.
+drive_bot: ball_chaser/CMakeFiles/drive_bot.dir/rule
+
+.PHONY : drive_bot
+
+# fast build rule for target.
+drive_bot/fast:
+	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/build
+.PHONY : drive_bot/fast
+
+# Convenience name for target.
 ball_chaser/CMakeFiles/ball_chaser_gennodejs.dir/rule:
 	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser_gennodejs.dir/rule
 .PHONY : ball_chaser/CMakeFiles/ball_chaser_gennodejs.dir/rule
@@ -556,21 +571,6 @@ ball_chaser_generate_messages_lisp/fast:
 .PHONY : ball_chaser_generate_messages_lisp/fast
 
 # Convenience name for target.
-ball_chaser/CMakeFiles/ball_chaser_node.dir/rule:
-	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser_node.dir/rule
-.PHONY : ball_chaser/CMakeFiles/ball_chaser_node.dir/rule
-
-# Convenience name for target.
-ball_chaser_node: ball_chaser/CMakeFiles/ball_chaser_node.dir/rule
-
-.PHONY : ball_chaser_node
-
-# fast build rule for target.
-ball_chaser_node/fast:
-	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser_node.dir/build.make ball_chaser/CMakeFiles/ball_chaser_node.dir/build
-.PHONY : ball_chaser_node/fast
-
-# Convenience name for target.
 ball_chaser/CMakeFiles/ball_chaser_genlisp.dir/rule:
 	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ball_chaser/CMakeFiles/ball_chaser_genlisp.dir/rule
 .PHONY : ball_chaser/CMakeFiles/ball_chaser_genlisp.dir/rule
@@ -591,7 +591,7 @@ src/drive_bot.o: src/drive_bot.cpp.o
 
 # target to build an object file
 src/drive_bot.cpp.o:
-	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser_node.dir/build.make ball_chaser/CMakeFiles/ball_chaser_node.dir/src/drive_bot.cpp.o
+	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.o
 .PHONY : src/drive_bot.cpp.o
 
 src/drive_bot.i: src/drive_bot.cpp.i
@@ -600,7 +600,7 @@ src/drive_bot.i: src/drive_bot.cpp.i
 
 # target to preprocess a source file
 src/drive_bot.cpp.i:
-	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser_node.dir/build.make ball_chaser/CMakeFiles/ball_chaser_node.dir/src/drive_bot.cpp.i
+	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.i
 .PHONY : src/drive_bot.cpp.i
 
 src/drive_bot.s: src/drive_bot.cpp.s
@@ -609,7 +609,7 @@ src/drive_bot.s: src/drive_bot.cpp.s
 
 # target to generate assembly for a file
 src/drive_bot.cpp.s:
-	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/ball_chaser_node.dir/build.make ball_chaser/CMakeFiles/ball_chaser_node.dir/src/drive_bot.cpp.s
+	cd /home/workspace/ball-chaser-robot/catkin_ws/build && $(MAKE) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.s
 .PHONY : src/drive_bot.cpp.s
 
 # Help Target
@@ -623,6 +623,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... drive_bot"
 	@echo "... ball_chaser_gennodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... ball_chaser_genpy"
@@ -651,7 +652,6 @@ help:
 	@echo "... ball_chaser_geneus"
 	@echo "... ball_chaser_generate_messages_lisp"
 	@echo "... install"
-	@echo "... ball_chaser_node"
 	@echo "... ball_chaser_genlisp"
 	@echo "... src/drive_bot.o"
 	@echo "... src/drive_bot.i"
