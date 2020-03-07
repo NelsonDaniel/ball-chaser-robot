@@ -18,22 +18,29 @@ void process_image_callback(const sensor_msgs::Image img)
 	int left_count = 0;
 	int middle_count = 0;
 	int right_count = 0;
-	for (int height = 0; i < img.height; i++) {
-		for (int step = 0; i < img.step; j++) {
-			if (step > img.step*(1/3)) {
+  	int i = 0;
+	for (int height = 0; height < img.height; height++) {
+		for (int step = 0; step < img.step; step++) {
+          if (img.data[i] == white_pixel) {  
+			if (step <= img.step*(1.0/3)) {
 				left_count += 1;
-			} else if (step > img.step*(1/3)) {
+			} else if (step <= img.step*(2.0/3)) {
 				middle_count += 1;
 			} else {
 				right_count += 1;
 			} 
+          }
+          
+          i++;
 		}
 	}
 	
+  
+  	ROS_INFO_STREAM("L: "<< left_count << " R: "<<right_count << " M: "<< middle_count);
 	if (left_count > right_count && left_count > middle_count) {
 		ROS_INFO_STREAM("left");
 	} else if (right_count > left_count && right_count > middle_count) {
-		ROS_INFO_STREAM("left");
+		ROS_INFO_STREAM("right");
 	} else {
 		ROS_INFO_STREAM("forward");
 	}
