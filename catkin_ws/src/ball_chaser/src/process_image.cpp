@@ -46,13 +46,13 @@ void process_image_callback(const sensor_msgs::Image img)
 		drive_robot(0.0, 0.0);
 	} else if (left_count > right_count && left_count > middle_count) {
 		ROS_INFO_STREAM("LEFT");
-		drive_robot(0.0, 0.5);
+		drive_robot(0.0,0.5);
 	} else if (right_count > left_count && right_count > middle_count) {
 		ROS_INFO_STREAM("RIGHT");
 		drive_robot(0.0, -0.5);
 	} else {
 		ROS_INFO_STREAM("FORWARD");
-		drive_robot(0.5, 0.0);
+		drive_robot(1.0, 0.0);
 	}
 }
 
