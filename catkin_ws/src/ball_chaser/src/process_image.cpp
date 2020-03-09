@@ -4,6 +4,8 @@
 
 // Define a global client that can request services
 ros::ServiceClient client;
+float last_lin_x = 0.0;
+float last_ang_z = 0.0;
 
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
@@ -41,18 +43,31 @@ void process_image_callback(const sensor_msgs::Image img)
 		}
 	}
 	
+	float current_lin_x = 0.0;
+	float current_ang_z = 0.0;
 	if (left_count == 0 && middle_count == 0 && right_count == 0) {
 		ROS_INFO_STREAM("STOP");
-		drive_robot(0.0, 0.0);
+		current_lin_x = 0.0;
+		current_ang_z = 0.0;
 	} else if (left_count > right_count && left_count > middle_count) {
 		ROS_INFO_STREAM("LEFT");
-		drive_robot(0.0,0.5);
+		current_lin_x = 0.0;
+		current_ang_z = 0.5;
 	} else if (right_count > left_count && right_count > middle_count) {
 		ROS_INFO_STREAM("RIGHT");
-		drive_robot(0.0, -0.5);
+		current_lin_x = 0.0;
+		current_ang_z = -0.5;
 	} else {
 		ROS_INFO_STREAM("FORWARD");
-		drive_robot(1.0, 0.0);
+		current_lin_x = 0.5;
+		current_ang_z = 0.0;
+	}
+	
+	
+	if (current_lin_x != last_lin_x || current_ang_z != last_ang_z) { 
+	    drive_robot(current_lin_x, current_ang_z);
+	    last_lin_x = current_lin_x;
+        last_ang_z = current_ang_z;
 	}
 }
 
