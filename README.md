@@ -1,5 +1,5 @@
 # ball-chaser-robot
-This is a ball chasing robot. It is my second project for the Robotics Software Engineering Nanodegree from Udacity.
+My second project for the Robotics Software Engineering Nanodegree from Udacity.
 
 This project contains two packages: `my_robot` and `ball_chaser`. 
 
